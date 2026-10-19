@@ -21,7 +21,7 @@ jobs:
           cp node_modules/sql.js/dist/sql-wasm.js node_modules/sql.js/dist/sql-wasm.wasm www/libs/
           sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js#libs/chart.umd.js#; s#https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js#libs/xlsx.full.min.js#' www/index.html
           grep -c "libs/" www/index.html
-      - run: npx cap add android && npx cap sync android
+      - run: npx --yes @capacitor/cli@6 add android && npx --yes @capacitor/cli@6 sync android
       - name: Storage permissions
         run: |
           M=android/app/src/main/AndroidManifest.xml
